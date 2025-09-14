@@ -4,7 +4,9 @@ import com.ridarhnizar.userlist.dto.UserRequestDTO;
 import com.ridarhnizar.userlist.dto.UserResponseDTO;
 import com.ridarhnizar.userlist.dto.SearchRequestDTO;
 import com.ridarhnizar.userlist.dto.AlphabetResponseDTO;
+import com.ridarhnizar.userlist.dto.AllUsersResponseDTO;
 import com.ridarhnizar.userlist.models.AlphabetInfo;
+import com.ridarhnizar.userlist.models.User;
 import com.ridarhnizar.userlist.services.UserService;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.http.ResponseEntity;
@@ -31,6 +33,16 @@ public class UserController {
         
         UserRequestDTO request = new UserRequestDTO(page, size);
         UserResponseDTO response = userService.getUsers(request);
+        return ResponseEntity.ok(response);
+    }
+    
+    /**
+     * Get ALL users without pagination
+     * GET /api/users/all
+     */
+    @GetMapping("/all")
+    public ResponseEntity<AllUsersResponseDTO> getAllUsers() {
+        AllUsersResponseDTO response = userService.getAllUsersWithCount();
         return ResponseEntity.ok(response);
     }
     

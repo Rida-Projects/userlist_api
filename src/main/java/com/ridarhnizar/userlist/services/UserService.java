@@ -4,6 +4,7 @@ import com.ridarhnizar.userlist.dto.UserRequestDTO;
 import com.ridarhnizar.userlist.dto.UserResponseDTO;
 import com.ridarhnizar.userlist.dto.SearchRequestDTO;
 import com.ridarhnizar.userlist.dto.AlphabetResponseDTO;
+import com.ridarhnizar.userlist.dto.AllUsersResponseDTO;
 import com.ridarhnizar.userlist.models.AlphabetInfo;
 import com.ridarhnizar.userlist.models.User;
 import org.springframework.core.io.ClassPathResource;
@@ -105,6 +106,27 @@ public class UserService {
     // Overloaded method for backward compatibility
     public UserResponseDTO getUsers(int page, int pageSize) {
         return getUsers(new UserRequestDTO(page, pageSize));
+    }
+    
+    /**
+     * Get ALL users without pagination
+     * Returns the complete list of all users
+     */
+    public List<User> getAllUsers() {
+        List<User> allUsers = new ArrayList<>();
+        for (int i = 0; i < allUsernames.size(); i++) {
+            allUsers.add(new User(allUsernames.get(i), i));
+        }
+        return allUsers;
+    }
+    
+    /**
+     * Get ALL users with count in response DTO
+     * Returns the complete list of all users with total count
+     */
+    public AllUsersResponseDTO getAllUsersWithCount() {
+        List<User> allUsers = getAllUsers();
+        return new AllUsersResponseDTO(allUsers, totalUserCount);
     }
     
     public UserResponseDTO getUsersByLetter(char letter, UserRequestDTO request) {

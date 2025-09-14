@@ -34,7 +34,7 @@ public class UserRequestDTO {
     
     public int getValidatedSize() {
         if (size <= 0) return 50;
-        if (size > 1000) return 1000;
+        if (size > 50000) return 1000;
         return size;
     }
 }
