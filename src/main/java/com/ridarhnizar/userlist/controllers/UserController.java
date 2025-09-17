@@ -108,13 +108,4 @@ public class UserController {
     public ResponseEntity<Integer> getUserCount() {
         return ResponseEntity.ok(userService.getTotalUserCount());
     }
-    
-    /**
-     * Health check endpoint
-     * GET /api/users/health
-     */
-    @GetMapping("/health")
-    public ResponseEntity<String> health() {
-        return ResponseEntity.ok("User API is running. Total users: " + userService.getTotalUserCount());
-    }
 }
