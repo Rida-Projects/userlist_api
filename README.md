@@ -1,4 +1,4 @@
-## User List API – Technical Challenge Summary
+## User List API
 
 ### Problem
 Efficiently expose a very large, alphabetically sorted username list (630K+, target 10M) via a web API and render it in a frontend without freezing the browser.
