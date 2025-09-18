@@ -100,7 +100,6 @@ curl "http://localhost:8080/api/users/letter/A?page=0&size=10"
 ```bash
 curl "http://localhost:8080/api/users?page=0&size=50"
 curl "http://localhost:8080/api/users/letter/M?page=0&size=50"
-curl "http://localhost:8080/api/users/alphabet"
 ```
 
 ## Summary
