@@ -107,6 +107,5 @@ curl "http://localhost:8080/api/users/alphabet"
 - Data is loaded and indexed once at startup.
 - All API responses are served from memory with fast, predictable performance.
 - Pagination is first-class to ensure smooth frontend rendering and robust backend throughput.
-- The structure follows conventional Spring practices, keeping concerns cleanly separated and easy to extend.
 
 
